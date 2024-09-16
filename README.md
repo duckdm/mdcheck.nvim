@@ -6,7 +6,6 @@ Example with lazy (and example config):
 ```lua
 return {
   'duckdm/mdcheck.nvim',
-  dev = true,
   opts = {
     --- Default opts
     --- Checkbox states
