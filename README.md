@@ -1,22 +1,13 @@
-A simple plugin to toggle checked states for checkboxes in markdown files.
+A simple neovim plugin to toggle checked states for checkboxes in markdown files.
 
 # Installation
 
-Example with lazy (and example config):
+Example using lazy:
 ```lua
 return {
   'duckdm/mdcheck.nvim',
-  opts = {
-    --- Default opts
-    --- Checkbox states
-    states = {
-        unchecked = "%[ %]",
-        in_progress = "%[~%]",
-        checked = "%[x%]"
-    },
-    --- If toggle should set checked instead of in progress from an unchecked state
-    toggle_checked_directly = false,
-  },
+  --- See default config
+  opts = {},
   config = function(_, opts)
     local mdcheck = require('mdcheck')
     mdcheck.setup(opts)
@@ -30,6 +21,19 @@ return {
     end, { desc = "Check markdown" })
   end
 }
+```
+
+# Default config
+
+```lua
+--- Checkbox states
+states = {
+    unchecked = "%[ %]",
+    in_progress = "%[~%]",
+    checked = "%[x%]"
+},
+--- If toggle should set checked instead of in progress from an unchecked state
+toggle_checked_directly = false,
 ```
 
 # Available commands
