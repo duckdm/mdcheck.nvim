@@ -6,20 +6,18 @@ Example using lazy:
 ```lua
 return {
   'duckdm/mdcheck.nvim',
-  --- See default config
+  event = 'VeryLazy',
+  --- See default config for available options
   opts = {},
-  config = function(_, opts)
-    local mdcheck = require('mdcheck')
-    mdcheck.setup(opts)
-
-    vim.keymap.set("n", "<leader>h", function()
-      if mdcheck.has_checkbox() then
-        mdcheck.toggle()
+  keys = {
+    { '<leader>h', function()
+      if require('mdcheck').has_checkbox() then
+        require('mdcheck').toggle()
       else
-        mdcheck.create()
+        require('mdcheck').create()
       end
-    end, { desc = "Check markdown" })
-  end
+    end, { desc = 'Create or toggle checkbox' } },
+  },
 }
 ```
 
